@@ -1,0 +1,14 @@
+.main-title {
+    font-family: $main-font-family;
+    font-size: 50px;
+
+    &--center {
+        text-align: center;
+    }
+}
+
+.done {
+    span {
+        text-decoration:line-through;
+    }
+}
