@@ -1,5 +1,6 @@
 main {
     background-color: $body-background-color;
+    position: relative;
 }
 
 .main-title {
@@ -28,9 +29,35 @@ main {
     flex-direction: column;
     justify-content: space-between;
     background-color: $deep-blue;
+    transform: translateX(-100%);
+    transition: .3s;
 }
 
 .filters {
     display: flex;
     flex-direction: column;
+}
+
+.hamburger {
+    position: fixed;
+    top:10px;
+    left: 10px;
+    position: relative;
+}
+
+.close-hamburger {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.opened {
+    transform: translateX(0);
+}
+
+.filters {
+
+    &__header {
+        text-align: center;    
+    }
 }

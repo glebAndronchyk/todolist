@@ -6,15 +6,21 @@ import { v4 as uuidv4 } from 'uuid';
 document.addEventListener('DOMContentLoaded', () => {
     const DATA = initLocalStorage();
     renderList(DATA);
+
     const form = document.querySelector('#form');
     const filterButtons = document.querySelectorAll('.filter-btn');
     const deleteAll = document.querySelector('.delete-button_all');
+    const menu = document.querySelector('.control-panel');
+    const hamburgerMenuOpenButton = document.querySelector('.hamburger'); 
+    const closeHamburgerBtn = document.querySelector('.close-hamburger');  
     let priorityState = 'all';
 
     filterButtons.forEach((btn) => {
         btn.addEventListener('click', priorityFilter);
     });
 
+    closeHamburgerBtn.addEventListener('click', closeHamburgerMenu)
+    hamburgerMenuOpenButton.addEventListener('click', openHamburgerMenu);
     deleteAll.addEventListener('click', clearList);
 
     form.addEventListener('submit', event => {
@@ -38,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // priorityFilter(formData.priority);
 
     });
+
+    function closeHamburgerMenu() {
+        menu.classList.remove('opened');
+    }
+
+    function openHamburgerMenu() {
+        menu.classList.add('opened');
+    }
 
     function clearList() {
         const tasksList = document.querySelector('#tasks-list');
@@ -84,13 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = getAllData();
         const tasksList = document.querySelector('#tasks-list');
         removeAllChildNodes(tasksList);
-
-        // data.forEach(element => {
-        //     if (element.priority != btnValue) {
-        //         setDataToLocalStorage(data);
-        //         return;
-        //     }
-        // });
 
         if (btnValue === 'all') {
             renderList(data);
