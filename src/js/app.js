@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setDataToLocalStorage(formData);
         renderListItem(formData);
+        priorityFilter(formData.priority);
         eventTarget.reset();
     });
 
@@ -42,9 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function priorityFilter(event) {
+    function priorityFilter(event, priority) {
         const btnValue = event.target.value;
         const data = getAllData();
+        console.log(btnValue == priority);
+        if (btnValue === priority) {
+            setDataToLocalStorage(data);
+            return;
+        }
         const tasksList = document.querySelector('#tasks-list');
         removeAllChildNodes(tasksList);
         if (btnValue === 'all') {
