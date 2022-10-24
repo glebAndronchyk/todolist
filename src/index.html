@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Webpack Boilerplate Starter Template</title>
-    <meta name="description" content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
-    <meta name="keywords" content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Plamen Nikolov, WeAreAthlon">
-  </head>
-  <body>
-    <main>
-      <div class="wrapper">
-        <div class="container">
-          <h1 class="main-title main-title--center">My ToDO List</h1>
-          <div class="form-container">
-            <form class="todo-form" id="form">
-              <input type="text" name="task-name" id="input-text">
 
-              <select name="task-priority" id="priority-select">
-                <option value="medium">Medium</option>
-                <option value="low">Low</option>
-                <option value="high">High</option>
-              </select>
+<head>
+  <meta charset="UTF-8">
+  <title>Webpack Boilerplate Starter Template</title>
+</head>
 
-              <button type="submit" id="submit-btn">Save task</button>
-            </form>
-
-            <button class="filter-btn" value="all">All</button>
-            <button class="filter-btn" value="medium">Medium</button>
-            <button class="filter-btn" value="high">High</button>
-            <button class="filter-btn" value="low">Low</button>
-
-            <ul class="tasks-list" id="tasks-list">
-
-            </ul>
-          </div>
-        </div>
+<body>
+  <main>
+    <aside class="control-panel">
+      <div class="filters">
+        <button class="filter-btn" value="all">All</button>
+        <button class="filter-btn" value="medium">Medium</button>
+        <button class="filter-btn" value="high">High</button>
+        <button class="filter-btn" value="low">Low</button>
       </div>
-    </main>
-  </body>
+     <button class="delete-button_all">Clear List</button>
+    </aside>
+
+    <div class="wrapper">
+      <div class="container">
+        <h1 class="main-title main-title--center">My ToDO List</h1>
+        <div class="form-container">
+          <form class="todo-form" id="form">
+            <input type="text" name="task-name" id="input-text">
+
+            <select name="task-priority" id="priority-select">
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+              <option value="high">High</option>
+            </select>
+
+            <button type="submit" id="submit-btn">Save task</button>
+          </form>
+        </div>
+
+        <ul class="tasks-list" id="tasks-list" />
+
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>

@@ -31,3 +31,7 @@ export const changeDoneStatus = (id, value) => {
 export const getAllData = () => {
     return JSON.parse(localStorage.getItem('TODOLIST'));
 };
+
+export const clearLocalStorageList = () => {
+    localStorage.setItem('TODOLIST', JSON.stringify([]));
+};

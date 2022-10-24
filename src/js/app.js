@@ -1,5 +1,5 @@
 import '../scss/app.scss';
-import { setDataToLocalStorage, initLocalStorage, removeItemFromLocalStorage, changeDoneStatus, getAllData } from './localStorage';
+import { setDataToLocalStorage, initLocalStorage, removeItemFromLocalStorage, changeDoneStatus, getAllData, getElementFromData, clearLocalStorageList } from './localStorage';
 import { v4 as uuidv4 } from 'uuid';
 
 /* Your JS Code goes here */
@@ -8,10 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderList(DATA);
     const form = document.querySelector('#form');
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const deleteAll = document.querySelector('.delete-button_all');
+    let priorityState = 'all';
 
     filterButtons.forEach((btn) => {
         btn.addEventListener('click', priorityFilter);
     });
+
+    deleteAll.addEventListener('click', clearList);
 
     form.addEventListener('submit', event => {
         event.preventDefault();
@@ -26,15 +30,46 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         setDataToLocalStorage(formData);
-        renderListItem(formData);
-        priorityFilter(formData.priority);
-        eventTarget.reset();
+        if (priorityState === 'all' || priorityState === formData.priority) {
+            deleteEmptyHolder();
+            renderListItem(formData);
+            eventTarget.reset();
+        }
+        // priorityFilter(formData.priority);
+
     });
 
+    function clearList() {
+        const tasksList = document.querySelector('#tasks-list');
+        clearLocalStorageList();
+        removeAllChildNodes(tasksList);
+        renderEmpty();
+    }
+
     function renderList(arr) {
+        if (arr.length === 0) {
+            renderEmpty();
+        }
         arr.forEach(item => {
             renderListItem(item);
         });
+    }
+
+    function renderEmpty() {
+        const tasksList = document.querySelector('#tasks-list');
+        const taskItem = document.createElement('li');
+        taskItem.setAttribute('id', 'empty');
+
+        taskItem.innerHTML = `<span>Nothing in list</span>`;
+        tasksList.append(taskItem);        
+    }
+
+    function deleteEmptyHolder () {
+        const empty = document.querySelector('#empty');
+        if(empty) {
+            empty.remove();
+        }
+        
     }
 
     function removeAllChildNodes(parent) {
@@ -43,16 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function priorityFilter(event, priority) {
+    function priorityFilter(event) {
         const btnValue = event.target.value;
+        priorityState = btnValue;
         const data = getAllData();
-        console.log(btnValue == priority);
-        if (btnValue === priority) {
-            setDataToLocalStorage(data);
-            return;
-        }
         const tasksList = document.querySelector('#tasks-list');
         removeAllChildNodes(tasksList);
+
+        // data.forEach(element => {
+        //     if (element.priority != btnValue) {
+        //         setDataToLocalStorage(data);
+        //         return;
+        //     }
+        // });
+
         if (btnValue === 'all') {
             renderList(data);
             return;
@@ -74,10 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function deleteItem(event) {
+        const tasksList = document.querySelector('#tasks-list');
         const parent = event.target.parentElement;
         const ID = parent.getAttribute('data-id');
         removeItemFromLocalStorage(ID);
         parent.remove();
+        if (tasksList.childElementCount === 0) {
+            renderEmpty();
+        }
     }
 
     function renderListItem(listItem) {
@@ -107,5 +150,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         deleteButton.addEventListener('click', deleteItem);
         isCompletedCheckbox.addEventListener('change', isCompletedChecker);
-    } 
+    }
 });
