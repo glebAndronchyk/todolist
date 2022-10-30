@@ -20,7 +20,7 @@ main {
 
 .control-panel {
     position: fixed;
-    width: 300px;
+    width: 150px;
     height: 100vh;
     top: 0;
     left: 0;
@@ -42,7 +42,6 @@ main {
     position: fixed;
     top:10px;
     left: 10px;
-    position: relative;
 }
 
 .close-hamburger {
@@ -60,4 +59,87 @@ main {
     &__header {
         text-align: center;    
     }
+}
+
+.tasks-list {
+    width: 100%;
+
+    .list-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        margin-bottom: 5px;
+        transition: 0.2s;
+        border: 1px solid transparent;
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 15px;
+
+        &:hover {
+            border: 1px solid $light-gray;
+        }
+    }
+
+    .priority {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .high-priority {
+        color: #62ca50;
+    }
+
+    .medium-priority {
+        color: #f78c37;
+    }
+
+    .low-priority {
+        color: #ffd827;
+    }
+
+    // .empty-placeholder {
+    //     text-align: center;
+    // }
+}
+
+.list {
+    max-width: 800px;
+    width: 100%;
+    height: 90vh;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: $deep-blue-bg;
+    color: $light-gray;
+    position: relative;
+
+    &__header {
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    .tasks-table {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        margin-bottom: 5px;
+
+        &__text {
+            border-bottom:1px dotted $light-gray ;
+            width: 20%;
+            text-align: center;
+        }
+    }
+}
+
+.todo-form {
+    height: 90vh;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: $deep-blue-bg;
 }

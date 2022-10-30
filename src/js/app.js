@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', priorityFilter);
     });
 
-    closeHamburgerBtn.addEventListener('click', closeHamburgerMenu)
+    closeHamburgerBtn.addEventListener('click', closeHamburgerMenu);
     hamburgerMenuOpenButton.addEventListener('click', openHamburgerMenu);
     deleteAll.addEventListener('click', clearList);
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskItem = document.createElement('li');
         taskItem.setAttribute('id', 'empty');
 
-        taskItem.innerHTML = `<span>Nothing in list</span>`;
+        taskItem.innerHTML = `<span class="empty-placeholer">Nothing in list</span>`;
         tasksList.append(taskItem);        
     }
 
@@ -130,6 +130,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function renderHighPriority() {
+        return `<i class="fa-solid fa-arrow-up high-priority priority"></i>`;
+    }
+
+    function renderMediumPriority() {
+        return `<i class="fa-solid fa-equals medium-priority priority"></i>`;
+    }
+
+    function renderLowPriority() {
+        return `<i class="fa-solid fa-arrow-down low-priority priority"></i>`;
+    }
+
+    function renderPriority(priority) {
+        if (priority === 'high') {
+            return renderHighPriority();
+        }
+        if (priority === 'medium') {
+            return renderMediumPriority();
+        }
+        if (priority === 'low') {
+            return renderLowPriority();
+        }
+        return 'unknown';
+    }
+
     function renderListItem(listItem) {
         const tasksList = document.querySelector('#tasks-list');
         const taskItem = document.createElement('li');
@@ -140,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isCompletedCheckbox.setAttribute('name', 'isCompleted');
         isCompletedCheckbox.checked = listItem.isDone;
 
-        taskItem.innerHTML = `<span>${listItem.taskName}, priority: ${listItem.priority}</span>`;
+        taskItem.innerHTML = `<span>${listItem.taskName} ${renderPriority(listItem.priority)}</span>`;
         taskItem.classList.add('list-item');
         taskItem.setAttribute('data-id', listItem.id);
 

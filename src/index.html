@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Webpack Boilerplate Starter Template</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
@@ -19,12 +21,12 @@
         <button class="filter-btn" value="high">High</button>
         <button class="filter-btn" value="low">Low</button>
       </div>
-     <button class="delete-button_all">Clear List</button>
+      <button class="delete-button_all">Clear List</button>
     </aside>
 
     <div class="wrapper">
-      <div class="container">
-        <h1 class="main-title main-title--center">My ToDO List</h1>
+      <h1 class="main-title main-title--center">My ToDO List</h1>
+      <div class="container container__list">
         <div class="form-container">
           <form class="todo-form" id="form">
             <input type="text" name="task-name" id="input-text">
@@ -39,11 +41,21 @@
           </form>
         </div>
 
-        <ul class="tasks-list" id="tasks-list" />
+        <div class="list">
+          <h3 class="list__header"><i class="fa-regular fa-circle-check"></i>tasks</h3>
+          <div class="tasks-table"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span>
+            <span class="tasks-table__text tasks-table__user-tasks">Your tasks</span>
+            <span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span>
+          </div>
+          <ul class="tasks-list" id="tasks-list" />
+        </div>
+
 
       </div>
     </div>
   </main>
+
+  <script src="https://kit.fontawesome.com/3d2d260dd4.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -2,12 +2,19 @@
     max-width: $container-width;
     width: 100%;
     padding: 0 $container-horizontal-paddings;
-    height: 100vh;
+    height: calc(100vh - 65px);
     margin: 0 auto;
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+
+    }
 }
 
 .form-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    max-width: 450px;
+    width: 100%;
 }
