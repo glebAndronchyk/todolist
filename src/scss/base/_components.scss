@@ -1,10 +1,11 @@
 main {
-    background-color: $body-background-color;
+    background-color: $deep-blue-bg;
     position: relative;
 }
 
 .main-title {
     font-family: $main-font-family;
+    color: $light-gray;
     font-size: 50px;
 
     &--center {
@@ -28,7 +29,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: $deep-blue;
+    background-color: $dark-green;
     transform: translateX(-100%);
     transition: .3s;
 }
@@ -63,6 +64,27 @@ main {
 
 .tasks-list {
     width: 100%;
+    max-height: calc(100% - 90px);
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width:5px;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+
+        &-track {
+            background-color: $dark-green;
+            border-radius: 10px;
+        }
+
+        &-thumb {
+            border-radius: 10px;
+            // box-shadow: inset 0 0 6px $dark-green;
+            width: 5px;
+            height: 5px;
+            background-color: $light-gray;
+        }
+    }
 
     .list-item {
         display: flex;
@@ -76,6 +98,11 @@ main {
 
         &:hover {
             border: 1px solid $light-gray;
+        }
+
+        &__text {
+            font-size: 20px;
+            // max-width: 120px;
         }
     }
 
@@ -96,6 +123,12 @@ main {
         color: #ffd827;
     }
 
+    #empty {
+        font-weight: bold;
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
     // .empty-placeholder {
     //     text-align: center;
     // }
@@ -107,7 +140,7 @@ main {
     height: 90vh;
     border-radius: 15px;
     padding: 10px;
-    background-color: $deep-blue-bg;
+    background-color: $dark-green;
     color: $light-gray;
     position: relative;
 
@@ -128,12 +161,14 @@ main {
         justify-content: space-between;
         padding: 0 10px;
         margin-bottom: 5px;
+        position: relative;
 
         &__text {
             border-bottom:1px dotted $light-gray ;
             width: 20%;
             text-align: center;
         }
+
     }
 }
 
@@ -141,5 +176,28 @@ main {
     height: 90vh;
     border-radius: 15px;
     padding: 10px;
-    background-color: $deep-blue-bg;
+    background-color: $dark-green;
+}
+
+.centered {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    text-align: center;
+    margin: auto 0;
+    position: relative;
+    // top: 40%;
+    // height: 5%;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    .remove-ico {
+        font-size: 20px;
+        color: $light-gray;
+    }
 }

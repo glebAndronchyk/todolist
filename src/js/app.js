@@ -72,15 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderEmpty() {
         const tasksList = document.querySelector('#tasks-list');
         const taskItem = document.createElement('li');
+        tasksList.classList.add('centered');
         taskItem.setAttribute('id', 'empty');
 
-        taskItem.innerHTML = `<span class="empty-placeholer">Nothing in list</span>`;
+        taskItem.innerHTML = `<span class="empty-placeholer">Nothing in the list</span>`;
         tasksList.append(taskItem);        
     }
 
     function deleteEmptyHolder () {
+        const tasksList = document.querySelector('#tasks-list');
         const empty = document.querySelector('#empty');
         if(empty) {
+            tasksList.classList.remove('centered');
             empty.remove();
         }
         
@@ -121,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function deleteItem(event) {
         const tasksList = document.querySelector('#tasks-list');
-        const parent = event.target.parentElement;
+        const parent = event.currentTarget.parentElement;
         const ID = parent.getAttribute('data-id');
         removeItemFromLocalStorage(ID);
         parent.remove();
@@ -155,6 +158,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'unknown';
     }
 
+    function taskNameLengthChecker(taskName) {
+        if (taskName.length > 50) {
+            // const seeMoreButton = document.createElement('button');
+            // const itemName = document.querySelector('.list-item__task-name');
+            // seeMoreButton.textContent = '...';
+            // seeMoreButton.classList.add('see-more');
+
+
+            // itemName.append(seeMoreButton);
+            return `${taskName.substring(0, 50)}`;
+        }
+        return taskName;
+    }
+
     function renderListItem(listItem) {
         const tasksList = document.querySelector('#tasks-list');
         const taskItem = document.createElement('li');
@@ -165,11 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
         isCompletedCheckbox.setAttribute('name', 'isCompleted');
         isCompletedCheckbox.checked = listItem.isDone;
 
-        taskItem.innerHTML = `<span>${listItem.taskName} ${renderPriority(listItem.priority)}</span>`;
+        taskItem.innerHTML = `<span class="list-item__text"><span class="list-item__task-name">${taskNameLengthChecker(listItem.taskName)}</span> ${renderPriority(listItem.priority)}</span>`;
         taskItem.classList.add('list-item');
         taskItem.setAttribute('data-id', listItem.id);
 
-        deleteButton.innerHTML = 'X';
+        deleteButton.innerHTML = '<i class="fa-regular fa-square-minus remove-ico"></i>';
         deleteButton.classList.add('delete-button');
 
         if (listItem.isDone) {
