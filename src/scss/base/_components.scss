@@ -1,5 +1,5 @@
 main {
-    background-color: $deep-blue-bg;
+    background-color: $deep-blue;
     position: relative;
 }
 
@@ -14,9 +14,7 @@ main {
 }
 
 .done {
-    span {
-        text-decoration:line-through;
-    }
+    text-decoration: line-through;
 }
 
 .control-panel {
@@ -41,7 +39,7 @@ main {
 
 .hamburger {
     position: fixed;
-    top:10px;
+    top: 10px;
     left: 10px;
 }
 
@@ -58,16 +56,62 @@ main {
 .filters {
 
     &__header {
-        text-align: center;    
+        text-align: center;
     }
 }
 
-.tasks-list {
+.list {
+    max-width: 800px;
     width: 100%;
-    max-height: calc(100% - 90px);
-    height: 100%;
+    height: 90vh;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: $dark-green;
+    color: $light-gray;
+    border: 2px solid $light-green;
+
+    // position: relative;
+
+    &__header {
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        border-bottom: 2px solid $light-green;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    // .tasks-table {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     padding: 0 10px;
+    //     margin-bottom: 5px;
+    //     position: relative;
+
+    //     &__text {
+    //         border-bottom: 1px dotted $light-gray ;
+    //         width: 20%;
+    //         text-align: center;
+    //     }
+
+    // }
+}
+
+.table-wrapper {
+    height: calc(100% - 41px);
     overflow-y: auto;
-    scrollbar-width:5px;
+    position: relative;
+    border: 2px solid $light-green;
+    background-color: $deep-blue-bg;
+}
+
+.tasks-table {
+    width: 100%;
+    position: relative;
+
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -85,10 +129,13 @@ main {
             background-color: $light-gray;
         }
     }
+    .table-header__element {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
 
     .list-item {
-        display: flex;
-        justify-content: space-between;
         padding: 0 10px;
         margin-bottom: 5px;
         transition: 0.2s;
@@ -103,6 +150,15 @@ main {
         &__text {
             font-size: 20px;
             // max-width: 120px;
+        }
+
+        &__task-name {
+            display: inline-block;
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 10px;
         }
     }
 
@@ -129,65 +185,96 @@ main {
         letter-spacing: 2px;
     }
 
+    tr,
+    thead {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border: 1px solid transparent;
+    }
+
+
+
+    td {
+        text-align: center;
+    }
+
+    tbody {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+
+        tr {
+            cursor: pointer ;
+        }
+
+        tr:hover {
+            border-top: $colored-border-for-tr;
+            border-bottom: $colored-border-for-tr;
+        }
+    }
+
     // .empty-placeholder {
     //     text-align: center;
     // }
 }
 
-.list {
-    max-width: 800px;
-    width: 100%;
-    height: 90vh;
-    border-radius: 15px;
-    padding: 10px;
-    background-color: $dark-green;
-    color: $light-gray;
-    position: relative;
 
-    &__header {
-        width: 100%;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        font-size: 20px;
-        font-weight: bold;
-        display: block;
-        border-bottom: 1px solid $light-gray;
-        padding-bottom: 5px;
-        margin-bottom: 5px;
-    }
-
-    .tasks-table {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 10px;
-        margin-bottom: 5px;
-        position: relative;
-
-        &__text {
-            border-bottom:1px dotted $light-gray ;
-            width: 20%;
-            text-align: center;
-        }
-
-    }
-}
 
 .todo-form {
     height: 90vh;
     border-radius: 15px;
     padding: 10px;
     background-color: $dark-green;
+    position: relative;
+    min-width: 324px;
+    border: 2px solid $light-green;
+
+    #input-text {
+        width: 100%;
+        padding:10px 10px 10px 5px;
+        display:block;
+        font-size: 14px;
+        background: $deep-blue-bg;
+        border-radius: 15px;
+        border: none;
+        position: relative;
+        border: 2px solid $light-green;
+        // text-transform: uppercase;
+        color: white;
+
+        &:focus ~ .input-label, &:valid ~ .input-label	{
+            top:3px;
+            left:23px;
+            padding: 0 5px;
+            background-color:$deep-blue-bg;
+            font-size: 12px;
+            border-right:2px solid $light-green; 
+            border-left:2px solid $light-green;
+        }
+    }
+
+    .input-label {
+        color: white;
+        font-size: 16px;
+        position: absolute;
+        pointer-events: none;
+        left:19px;
+        top:18px;
+        transition:0.2s ease all; 
+        cursor: default;
+    }
 }
 
+// .moved {
+//     top:8px;
+//     left:23px;
+//     font-size:12px;
+// }
+
 .centered {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     text-align: center;
-    margin: auto 0;
-    position: relative;
-    // top: 40%;
-    // height: 5%;
+    vertical-align: middle;
 }
 
 .delete-button {
@@ -199,5 +286,19 @@ main {
     .remove-ico {
         font-size: 20px;
         color: $light-gray;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 99;
+
+    &.visible {
+        display: block;
     }
 }

@@ -29,7 +29,8 @@
       <div class="container container__list">
         <div class="form-container">
           <form class="todo-form" id="form">
-            <input type="text" name="task-name" id="input-text">
+            <input type="text" name="task-name" id="input-text" required>
+            <label class="input-label" for="input-text">Enter Your Task</label>
 
             <select name="task-priority" id="priority-select">
               <option value="medium">Medium</option>
@@ -43,11 +44,21 @@
 
         <div class="list">
           <h3 class="list__header"><i class="fa-regular fa-circle-check"></i>tasks</h3>
-          <div class="tasks-table"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span>
-            <span class="tasks-table__text tasks-table__user-tasks">Your tasks</span>
-            <span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span>
+
+          <div class="table-wrapper">
+            <table class="tasks-table">
+              <thead>
+                <tr>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span></th>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__user-tasks">Your tasks</span></th>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__task-priority">Priority</span></th>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span></th>
+                </tr>
+              </thead>
+              <tbody class="table-body" id="tasks-list" />
+            </table>
           </div>
-          <ul class="tasks-list" id="tasks-list" />
+         
         </div>
 
 
@@ -56,6 +67,7 @@
 
     <!-- <span class="test">eyasadasdasdasdasdasasd</span> -->
   </main>
+  <div class="overlay"></div>
 
   <script src="https://kit.fontawesome.com/3d2d260dd4.js" crossorigin="anonymous"></script>
 </body>
