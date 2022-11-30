@@ -7,6 +7,7 @@ main {
     font-family: $main-font-family;
     color: $light-gray;
     font-size: 50px;
+    margin-bottom: 10px;
 
     &--center {
         text-align: center;
@@ -28,6 +29,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     background-color: $dark-green;
+    border-right: 2px solid $light-green;
     transform: translateX(-100%);
     transition: .3s;
 }
@@ -35,12 +37,40 @@ main {
 .filters {
     display: flex;
     flex-direction: column;
+
+
+    &__header {
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        color: #fff;
+        border-bottom: 2px solid #8ee4af;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 .hamburger {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    border-radius: 5px;
+    border: 2px solid $light-green;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #379683;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: $light-green;
+        border: 2px solid transparent;
+    }
 }
 
 .close-hamburger {
@@ -51,13 +81,6 @@ main {
 
 .opened {
     transform: translateX(0);
-}
-
-.filters {
-
-    &__header {
-        text-align: center;
-    }
 }
 
 .list {
@@ -129,6 +152,7 @@ main {
             background-color: $light-gray;
         }
     }
+
     .table-header__element {
         position: sticky;
         top: 0;
@@ -205,7 +229,7 @@ main {
         text-align: center;
 
         tr {
-            cursor: pointer ;
+            cursor: pointer;
         }
 
         tr:hover {
@@ -230,10 +254,76 @@ main {
     min-width: 324px;
     border: 2px solid $light-green;
 
+    &__header {
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        color: #fff;
+        border-bottom: 2px solid #8ee4af;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    .control-buttons-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+
+        .select-wrapper {
+            max-width: 120px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            &__text {
+                font-size: 16px;
+                margin-bottom: 5px;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            #priority-select {
+                border-radius: 15px;
+                border: 2px solid $light-green;
+                background: $deep-blue-bg;
+                color: #fff;
+                padding: 5px;
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+        }
+
+        #submit-btn {
+            border-radius: 15px;
+            border: 2px solid $light-green;
+            background: $deep-blue-bg;
+            color: #fff;
+            max-width: 150px;
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                background: $light-green;
+            }
+        }
+    }
+
     #input-text {
         width: 100%;
-        padding:10px 10px 10px 5px;
-        display:block;
+        padding: 10px 10px 10px 5px;
+        display: block;
         font-size: 14px;
         background: $deep-blue-bg;
         border-radius: 15px;
@@ -243,14 +333,15 @@ main {
         // text-transform: uppercase;
         color: white;
 
-        &:focus ~ .input-label, &:valid ~ .input-label	{
-            top:3px;
-            left:23px;
+        &:focus~.input-label,
+        &:valid~.input-label {
+            top: 45px;
+            left: 23px;
             padding: 0 5px;
-            background-color:$deep-blue-bg;
+            background-color: $deep-blue-bg;
             font-size: 12px;
-            border-right:2px solid $light-green; 
-            border-left:2px solid $light-green;
+            border-right: 2px solid $light-green;
+            border-left: 2px solid $light-green;
         }
     }
 
@@ -259,9 +350,9 @@ main {
         font-size: 16px;
         position: absolute;
         pointer-events: none;
-        left:19px;
-        top:18px;
-        transition:0.2s ease all; 
+        left: 23px;
+        top: 56px;
+        transition: 0.2s ease all;
         cursor: default;
     }
 }

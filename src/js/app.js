@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function wordCounter(taskName) {
-		if (taskName.length > 10) {
-			return `${taskName.substring(0, 10)}...`;
+		if (taskName.length > 20) {
+			return `${taskName.substring(0, 20)}...`;
 		}
 		return taskName;
 	}
