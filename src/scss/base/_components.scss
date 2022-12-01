@@ -20,7 +20,7 @@ main {
 
 .control-panel {
     position: fixed;
-    width: 150px;
+    width: 250px;
     height: 100vh;
     top: 0;
     left: 0;
@@ -32,13 +32,13 @@ main {
     border-right: 2px solid $light-green;
     transform: translateX(-100%);
     transition: .3s;
-}
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 
-.filters {
-    display: flex;
-    flex-direction: column;
-
-
+    .filters-wrapper {
+        padding: 0 4px;
+    }
+    
     &__header {
         text-align: center;
         width: 100%;
@@ -52,6 +52,27 @@ main {
         padding-bottom: 5px;
         margin-bottom: 5px;
     }
+
+    .btn {
+        background: $deep-blue-bg;
+        border: 2px solid $light-green;
+        cursor: pointer;
+        color: #fff;
+        transition: 0.3s;
+
+        &:hover {
+            background: $light-green;
+        }
+    }
+    
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-height: 200px;
+    height: 100%;
 }
 
 .hamburger {
@@ -75,8 +96,8 @@ main {
 
 .close-hamburger {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 3px;
+    right: 10px;
 }
 
 .opened {
@@ -84,7 +105,7 @@ main {
 }
 
 .list {
-    max-width: 800px;
+    max-width: 1300px;
     width: 100%;
     height: 90vh;
     border-radius: 15px;
@@ -172,7 +193,12 @@ main {
         }
 
         &__text {
+            display: block;
+            width: 450px;
             font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             // max-width: 120px;
         }
 
@@ -374,6 +400,12 @@ main {
     padding: 0;
     cursor: pointer;
 
+    &_all {
+        border-bottom-right-radius: 15px;
+        // border-right:2px solid transparent ;
+        padding: 15px 0;
+    }
+
     .remove-ico {
         font-size: 20px;
         color: $light-gray;
@@ -388,6 +420,8 @@ main {
     right: 0;
     display: none;
     z-index: 99;
+    // transition: background-color 1000ms linear;
+    background-color: rgba(0,0,0,0.5);
 
     &.visible {
         display: block;

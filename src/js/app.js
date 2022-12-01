@@ -171,12 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		return 'unknown';
 	}
 
-	function wordCounter(taskName) {
-		if (taskName.length > 20) {
-			return `${taskName.substring(0, 20)}...`;
-		}
-		return taskName;
-	}
+	// function wordCounter(taskName) {
+	// 	if (taskName.length > 20) {
+	// 		return `${taskName.substring(0, 20)}...`;
+	// 	}
+	// 	return taskName;
+	// }
 
 	function renderListItem(listItem) {
 		const tasksList = document.querySelector('#tasks-list');
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const test = [tdCheckbox, tdName, tdPriority, tdDelete];
 
 		tdCheckbox.append(isCompletedCheckbox);
-		tdName.innerHTML = `<span class="list-item__text ${listItem.isDone ? "done" : null}">${wordCounter(listItem.taskName)}</span>`;
+		tdName.innerHTML = `<span class="list-item__text ${listItem.isDone ? "done" : null}">${listItem.taskName}</span>`;
 
 		tdPriority.innerHTML = `${renderPriority(listItem.priority)}`;
 		tdDelete.append(deleteButton);

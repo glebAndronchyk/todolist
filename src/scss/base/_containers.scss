@@ -2,12 +2,12 @@
     max-width: $container-width;
     width: 100%;
     padding: 0 $container-horizontal-paddings;
-    height: calc(100vh - 65px);
+    height: calc(100vh - 74px);
     margin: 0 auto;
 
     &__list {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
 
     }
 }
