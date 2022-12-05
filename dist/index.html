@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<link rel="icon" href="favicon.ico"><script defer src="js/app.js"></script><link href="css/app.css" rel="stylesheet"></head>
+
+<body>
+  <main>
+    <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+
+    <aside class="control-panel">
+      <button class="close-hamburger btn">X</button>
+      <div class="filters-wrapper">
+        <span class="control-panel__header">Filters</span>
+        <div class="filters">
+          <button class="filter-btn btn" value="all">All</button>
+          <button class="filter-btn btn" value="medium">Medium</button>
+          <button class="filter-btn btn" value="high">High</button>
+          <button class="filter-btn btn" value="low">Low</button>
+        </div>
+      </div>
+      <button class="delete-button_all btn">Clear List</button>
+    </aside>
+
+    <div class="wrapper">
+      <h1 class="main-title main-title--center">ToDO List</h1>
+      <div class="container container__list">
+        <div class="form-container">
+
+          <form class="todo-form" id="form">
+
+            <h3 class="todo-form__header"><i class="fa-solid fa-gamepad"></i>control panel</h3>
+            <input type="text" name="task-name" id="input-text" required>
+            <label class="input-label" for="input-text">Enter Your Task</label>
+
+            <div class="control-buttons-wrapper">
+
+              <div class="select-wrapper">
+                <span class="select-wrapper__text">Choose priority</span>
+                <select name="task-priority" id="priority-select">
+                  <option class="priority-select__select-option" value="medium">Medium</option>
+                  <option class="priority-select__select-option" value="low">Low</option>
+                  <option class="priority-select__select-option" value="high">High</option>
+                </select>
+              </div>
+
+
+              <button type="submit" id="submit-btn">Save task</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="list">
+          <h3 class="list__header"><i class="fa-regular fa-circle-check"></i>tasks</h3>
+
+          <div class="table-header">
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span></div>
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__user-tasks">Your tasks</span></div>
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__task-priority">Priority</span></div>
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span></div>
+          </div>
+          <div class="table-wrapper">
+            <table class="tasks-table">
+              <!-- <thead>
+                <tr>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span></th>
+                  <th class="table-header__element table-header__user-tasks"><span class="tasks-table__text tasks-table__user-tasks">Your tasks</span></th>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__task-priority">Priority</span></th>
+                  <th class="table-header__element"><span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span></th>
+                </tr>
+              </thead> -->
+              <tbody class="table-body" id="tasks-list" />
+            </table>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- <span class="test">eyasadasdasdasdasdasasd</span> -->
+  </main>
+  <div class="overlay"></div>
+
+  <script src="https://kit.fontawesome.com/3d2d260dd4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
