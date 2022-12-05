@@ -38,7 +38,7 @@ main {
     .filters-wrapper {
         padding: 0 4px;
     }
-    
+
     &__header {
         text-align: center;
         width: 100%;
@@ -64,7 +64,7 @@ main {
             background: $light-green;
         }
     }
-    
+
 }
 
 .filters {
@@ -144,37 +144,65 @@ main {
     // }
 }
 
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $deep-blue-bg;
+    border:2px solid $light-green;
+    border-bottom: none;
+    z-index: 10;
+    // box-shadow: 24px 14px 34px 3px rgba(0,0,0,0.41);
+
+    &__element {
+        max-width: 25%;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px 0;
+    }
+}
+
 .table-wrapper {
-    height: calc(100% - 41px);
+    height: calc(100% - 41px - 36px);
     overflow-y: auto;
     position: relative;
     border: 2px solid $light-green;
     background-color: $deep-blue-bg;
-}
 
-.tasks-table {
-    width: 100%;
-    position: relative;
 
 
     &::-webkit-scrollbar {
         width: 10px;
 
         &-track {
-            background-color: $dark-green;
+            background-color: $deep-blue-bg;
             border-radius: 10px;
         }
 
         &-thumb {
             border-radius: 10px;
-            // box-shadow: inset 0 0 6px $dark-green;
+            box-shadow: inset 0 0 6px $dark-green;
             width: 5px;
             height: 5px;
-            background-color: $light-gray;
+            background-color: rgba(255, 255, 255, 0.3);
         }
     }
+}
 
-    .table-header__element {
+.tasks-table {
+    width: 100%;
+    position: relative;
+
+    &__text {
+        font-size: 20px;
+    }
+
+    // &__user-tasks {
+    //     text-align: left;
+    // }
+
+    .table-header {
         position: sticky;
         top: 0;
         z-index: 1;
@@ -193,6 +221,7 @@ main {
         }
 
         &__text {
+            text-align: left;
             display: block;
             width: 450px;
             font-size: 20px;
@@ -247,16 +276,13 @@ main {
 
     td {
         text-align: center;
+        // border: 1px solid black;
     }
 
     tbody {
         display: block;
         margin-top: 20px;
         text-align: center;
-
-        tr {
-            cursor: pointer;
-        }
 
         tr:hover {
             border-top: $colored-border-for-tr;
@@ -353,7 +379,6 @@ main {
         font-size: 14px;
         background: $deep-blue-bg;
         border-radius: 15px;
-        border: none;
         position: relative;
         border: 2px solid $light-green;
         // text-transform: uppercase;
@@ -404,6 +429,8 @@ main {
         border-bottom-right-radius: 15px;
         // border-right:2px solid transparent ;
         padding: 15px 0;
+        font-weight: bold;
+        font-size: 20px;
     }
 
     .remove-ico {
@@ -427,3 +454,48 @@ main {
         display: block;
     }
 }
+
+.td-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .label-for-checkbox {
+        position: relative;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        display: flex;
+
+        .mark-checkbox {
+            display: none;
+        }
+
+        .checkmark {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.shown {
+                background-color: #2196F3;
+            }
+
+            .check-ico {
+                display: none;
+                font-size: 15px;
+
+                &.shown {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+

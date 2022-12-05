@@ -27,7 +27,7 @@
     </aside>
 
     <div class="wrapper">
-      <h1 class="main-title main-title--center">My ToDO List</h1>
+      <h1 class="main-title main-title--center">ToDO List</h1>
       <div class="container container__list">
         <div class="form-container">
 
@@ -48,7 +48,7 @@
                 </select>
               </div>
 
-  
+
               <button type="submit" id="submit-btn">Save task</button>
             </div>
           </form>
@@ -57,20 +57,26 @@
         <div class="list">
           <h3 class="list__header"><i class="fa-regular fa-circle-check"></i>tasks</h3>
 
+          <div class="table-header">
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span></div>
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__user-tasks">Your tasks</span></div>
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__task-priority">Priority</span></div>
+            <div class="table-header__element"><span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span></div>
+          </div>
           <div class="table-wrapper">
             <table class="tasks-table">
-              <thead>
+              <!-- <thead>
                 <tr>
                   <th class="table-header__element"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span></th>
-                  <th class="table-header__element"><span class="tasks-table__text tasks-table__user-tasks">Your tasks</span></th>
+                  <th class="table-header__element table-header__user-tasks"><span class="tasks-table__text tasks-table__user-tasks">Your tasks</span></th>
                   <th class="table-header__element"><span class="tasks-table__text tasks-table__task-priority">Priority</span></th>
                   <th class="table-header__element"><span class="tasks-table__text tasks-table__text-delete-buttons">Delete</span></th>
                 </tr>
-              </thead>
+              </thead> -->
               <tbody class="table-body" id="tasks-list" />
             </table>
           </div>
-         
+
         </div>
 
 
