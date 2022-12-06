@@ -459,6 +459,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 
     .label-for-checkbox {
         position: relative;
@@ -473,7 +474,8 @@ main {
         }
 
         .checkmark {
-            position: absolute;
+            position: relative;
+            top: 2px;
             height: 20px;
             width: 20px;
             background-color: #fff;
@@ -492,6 +494,7 @@ main {
                 font-size: 15px;
 
                 &.shown {
+                    position: absolute;
                     display: block;
                 }
             }
