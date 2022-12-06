@@ -10,11 +10,17 @@ export class RenderTasksList {
     this.list = document.querySelector('#tasks-list');
   }
 
-  renderList() {
-    if (this.data.length === 0) {
+  removeChildNodes() {
+    while (this.list.firstChild) {
+      this.list.removeChild(this.list.firstChild);
+    }
+  }
+
+  renderList(data) {
+    if (data.length === 0) {
       this.renderEmpty();
     }
-    this.data.forEach((item) => this.renderListItem(item));
+    data.forEach((item) => this.renderListItem(item));
   }
 
   renderEmpty() {

@@ -1,16 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
 import { setDataToLocalStorage } from './localStorage';
-// eslint-disable-next-line import/no-cycle,import/no-duplicates
-import { render } from './app';
-// eslint-disable-next-line import/prefer-default-export,import/no-cycle,import/no-duplicates,import/named
-import { form } from './app';
+// eslint-disable-next-line import/named,import/no-duplicates,import/no-cycle
+import { render, filters, form } from './app';
 import { Empty } from './emptyElement';
 
 // eslint-disable-next-line import/prefer-default-export
 export class Form {
   constructor() {
     this.form = document.querySelector('#form');
-    this.priorityState = 'all';
+    this.priorityState = filters.priorityState;
   }
 
   addTask(event) {

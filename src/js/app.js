@@ -1,17 +1,17 @@
 import '../scss/app.scss';
-import {
-  setDataToLocalStorage, initLocalStorage, removeItemFromLocalStorage, changeDoneStatus, getAllData, clearLocalStorageList,
-} from './localStorage';
-
+import { initLocalStorage } from './localStorage';
 import { RenderTasksList } from './RenderTL';
+import { Filters } from './Filters';
+import { Menu } from './Menu';
 // eslint-disable-next-line import/no-cycle
 import { Form } from './Form';
-import { Menu } from './Menu';
 
 const DATA = initLocalStorage();
 export const render = new RenderTasksList(DATA);
-render.renderList();
+render.renderList(DATA);
+export const filters = new Filters();
+filters.addListeners();
+export const menu = new Menu();
+menu.addListeners();
 export const form = new Form();
 form.addListener();
-export const menu = new Menu();
-menu.addListeners(menu);
