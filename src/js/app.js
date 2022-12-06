@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isCompletedChecker(event) {
+    // console.log(event.target);
     const parent = event.target.parentElement.parentElement.parentElement;
     const ID = parent.getAttribute('data-id');
     const CHECKED = event.target.checked;
