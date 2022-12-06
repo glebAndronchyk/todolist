@@ -18,7 +18,7 @@ export class DeleteButton {
     }
   }
 
-  addListener(context) {
-    this.btn.addEventListener('click', this.deleteItem.bind(context));
+  addListener() {
+    this.btn.addEventListener('click', this.deleteItem.bind(this));
   }
 }

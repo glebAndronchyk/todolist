@@ -50,7 +50,7 @@ export class RenderTasksList {
     taskRow.append(...tableItems);
     tasksList.append(taskRow);
 
-    deleteButton.addListener(deleteButton);
+    deleteButton.addListener();
     checkbox.input.addEventListener('change', checkbox.completionStatus);
   }
 }
