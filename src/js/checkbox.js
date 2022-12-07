@@ -1,4 +1,5 @@
-import { changeDoneStatus } from './localStorage';
+// eslint-disable-next-line import/named
+import { storage } from './app';
 
 // eslint-disable-next-line import/prefer-default-export
 export class Checkbox {
@@ -34,7 +35,7 @@ export class Checkbox {
     const parent = event.target.parentElement.parentElement.parentElement;
     const ID = parent.getAttribute('data-id');
     const CHECKED = event.target.checked;
-    changeDoneStatus(ID, CHECKED);
+    storage.changeStatus(ID, CHECKED);
     if (CHECKED) {
       parent.querySelector('.checkmark').classList.add('shown');
       parent.querySelector('.check-ico').classList.add('shown');

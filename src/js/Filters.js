@@ -1,6 +1,5 @@
-import { getAllData, clearLocalStorageList } from './localStorage';
-// eslint-disable-next-line import/no-cycle
-import { render, form } from './app';
+// eslint-disable-next-line import/no-cycle,import/named
+import { storage, render, form } from './app';
 
 // eslint-disable-next-line import/prefer-default-export
 export class Filters {
@@ -17,7 +16,7 @@ export class Filters {
 
   filterList(event) {
     const btnValue = event.target.value;
-    const data = getAllData();
+    const data = storage.getAll;
     this.priorityState = btnValue;
     form.priorityState = this.priorityState;
     render.removeChildNodes();
@@ -32,7 +31,7 @@ export class Filters {
 
   // eslint-disable-next-line class-methods-use-this
   clearList() {
-    clearLocalStorageList();
+    storage.clearStorage();
     render.removeChildNodes();
     render.renderEmpty();
   }

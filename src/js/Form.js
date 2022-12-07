@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-import { setDataToLocalStorage } from './localStorage';
 // eslint-disable-next-line import/named,import/no-duplicates,import/no-cycle
-import { render, filters, form } from './app';
+import {
+  // eslint-disable-next-line import/named
+  storage, render, filters, form,
+} from './app';
 import { Empty } from './emptyElement';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -25,7 +27,7 @@ export class Form {
       return;
     }
 
-    setDataToLocalStorage(formData);
+    storage.setData(formData);
 
     if (this.priorityState === 'all' || this.priorityState === formData.priority) {
       new Empty().delete();

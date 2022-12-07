@@ -1,4 +1,5 @@
-import { removeItemFromLocalStorage } from './localStorage';
+// eslint-disable-next-line import/named,import/no-cycle
+import { storage } from './app';
 import { Empty } from './emptyElement';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -11,7 +12,7 @@ export class DeleteButton {
   deleteItem(event) {
     const parent = event.currentTarget.parentElement.parentElement;
     const ID = parent.getAttribute('data-id');
-    removeItemFromLocalStorage(ID);
+    storage.removeItem(ID);
     parent.remove();
     if (this.tasksList.childElementCount === 0) {
       new Empty(this.tasksList).build();

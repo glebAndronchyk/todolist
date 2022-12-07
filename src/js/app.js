@@ -1,12 +1,13 @@
 import '../scss/app.scss';
-import { initLocalStorage } from './localStorage';
+import { LocalStorage } from './localStorage';
 import { RenderTasksList } from './RenderTL';
 import { Filters } from './Filters';
 import { Menu } from './Menu';
 // eslint-disable-next-line import/no-cycle
 import { Form } from './Form';
 
-const DATA = initLocalStorage();
+export const storage = new LocalStorage();
+const DATA = storage.init();
 export const render = new RenderTasksList(DATA);
 render.renderList(DATA);
 export const filters = new Filters();
