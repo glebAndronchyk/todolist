@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export class Priority {
+export default class Priority {
   // eslint-disable-next-line class-methods-use-this
   renderPriority(priority) {
     if (priority === 'high') {

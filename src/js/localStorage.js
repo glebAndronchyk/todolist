@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export class LocalStorage {
+export default class LocalStorage {
   constructor() {
     this.storage = window.localStorage;
   }

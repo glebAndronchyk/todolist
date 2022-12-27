@@ -114,10 +114,12 @@ main {
     color: $light-gray;
     border: 2px solid $light-green;
 
-    // position: relative;
+    &-header-holder {
+        display: flex;
+        justify-content: space-between;
+    }
 
     &__header {
-        width: 100%;
         text-transform: uppercase;
         letter-spacing: 5px;
         font-size: 20px;
@@ -128,20 +130,53 @@ main {
         margin-bottom: 5px;
     }
 
-    // .tasks-table {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     padding: 0 10px;
-    //     margin-bottom: 5px;
-    //     position: relative;
+    .sorting {
+        position: relative;
 
-    //     &__text {
-    //         border-bottom: 1px dotted $light-gray ;
-    //         width: 20%;
-    //         text-align: center;
-    //     }
+        &__button {
+            height: 28px;
+            width:28px;
+            border-radius: 5px;
+            border:2px solid $light-green;
+            background: none;
+            cursor: pointer;
+            color: #fff;
+        }
 
-    // }
+        &__menu {
+            position: absolute;
+            width: 45px;
+            height: 100px;
+            top: 30px;
+            left: -10px;
+            border-radius: 10px;
+
+            .sort-type {
+                display: none;
+
+                &.shown {
+                    display: block;
+                }
+            }
+
+            &.hidden {
+                border: none;
+                box-shadow: none;
+                z-index: 0;
+                background: none;
+
+            }
+
+            &.shown {
+                border: 2px solid $light-green;
+                box-shadow: 10px 10px 40px -4px rgba(0,0,0,0.75);
+                z-index: 999;
+                background: $deep-blue-bg;
+            }
+        }
+
+
+    }
 }
 
 .table-header {

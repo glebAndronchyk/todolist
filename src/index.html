@@ -55,7 +55,18 @@
         </div>
 
         <div class="list">
-          <h3 class="list__header"><i class="fa-regular fa-circle-check"></i>tasks</h3>
+          <div class="list-header-holder">
+            <h3 class="list__header"><i class="fa-regular fa-circle-check"></i>tasks</h3>
+            <div class="sorting">
+              <button class="sorting__button"><i class="fa-solid fa-filter"></i></button>
+              <div class="sorting__menu hidden">
+                <button class="sort-type"><i class="fa-solid fa-arrow-down-a-z"></i></button>
+                <button class="sort-type"><i class="fa-solid fa-arrow-up-a-z"></i></button>
+                <button class="sort-type"><i class="fa-solid fa-arrow-up-wide-short"></i></button>
+                <button class="sort-type"><i class="fa-solid fa-arrow-down-wide-short"></i></button>
+              </div>
+            </div>
+          </div>
 
           <div class="table-header">
             <div class="table-header__element"><span class="tasks-table__text tasks-table__mark-text">Mark as completed</span></div>

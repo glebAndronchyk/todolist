@@ -1,13 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
-// eslint-disable-next-line import/named,import/no-duplicates,import/no-cycle
 import {
   // eslint-disable-next-line import/named
   storage, render, filters, form,
 } from './app';
-import { Empty } from './emptyElement';
+import Empty from './EmptyElement';
 
-// eslint-disable-next-line import/prefer-default-export
-export class Form {
+export default class Form {
   constructor() {
     this.form = document.querySelector('#form');
     this.priorityState = filters.priorityState;

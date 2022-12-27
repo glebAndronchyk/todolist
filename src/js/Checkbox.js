@@ -1,8 +1,6 @@
-// eslint-disable-next-line import/named
 import { storage } from './app';
 
-// eslint-disable-next-line import/prefer-default-export
-export class Checkbox {
+export default class Checkbox {
   constructor(listItem) {
     this.listItem = listItem;
     this.label = document.createElement('label');

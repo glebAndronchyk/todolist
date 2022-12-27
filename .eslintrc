@@ -26,5 +26,6 @@
     "browser": false,
     "window": true,
     "document": true
-  }
+  },
+  "parser": "@babel/eslint-parser"
 }

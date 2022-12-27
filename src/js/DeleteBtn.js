@@ -1,9 +1,7 @@
-// eslint-disable-next-line import/named,import/no-cycle
 import { storage } from './app';
-import { Empty } from './emptyElement';
+import Empty from './EmptyElement';
 
-// eslint-disable-next-line import/prefer-default-export
-export class DeleteButton {
+export default class DeleteButton {
   constructor(tasksList) {
     this.tasksList = tasksList;
     this.btn = document.createElement('button');

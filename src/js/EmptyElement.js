@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export class Empty {
+export default class Empty {
   constructor(list) {
     this.parent = list;
     this.item = document.createElement('tr');

@@ -1,17 +1,15 @@
-// eslint-disable-next-line import/no-cycle,import/named
 import { storage, render, form } from './app';
 
-// eslint-disable-next-line import/prefer-default-export
-export class Filters {
+export default class Filters {
   constructor() {
-    this.btns = document.querySelectorAll('.filter-btn');
-    this.deleteAll = document.querySelector('.delete-button_all');
     this.priorityState = 'all';
   }
 
   addListeners() {
-    this.btns.forEach((btn) => btn.addEventListener('click', this.filterList.bind(this)));
-    this.deleteAll.addEventListener('click', this.clearList.bind(this));
+    const btns = document.querySelectorAll('.filter-btn');
+    const deleteAll = document.querySelector('.delete-button_all');
+    btns.forEach((btn) => btn.addEventListener('click', this.filterList.bind(this)));
+    deleteAll.addEventListener('click', this.clearList.bind(this));
   }
 
   filterList(event) {

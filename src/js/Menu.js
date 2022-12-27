@@ -1,10 +1,9 @@
-// eslint-disable-next-line import/prefer-default-export
-export class Menu {
+export default class Menu {
   constructor() {
-    this.menu = document.querySelector('.control-panel');
     this.open = document.querySelector('.hamburger');
     this.close = document.querySelector('.close-hamburger');
     this.overlay = document.querySelector('.overlay');
+    this.menu = document.querySelector('.control-panel');
   }
 
   openMenu() {

@@ -1,10 +1,9 @@
-import { Empty } from './emptyElement';
-import { Priority } from './priority';
-import { DeleteButton } from './deleteBtn';
-import { Checkbox } from './checkbox';
+import Empty from './EmptyElement';
+import Priority from './Priority';
+import DeleteButton from './DeleteBtn';
+import Checkbox from './Checkbox';
 
-// eslint-disable-next-line import/prefer-default-export
-export class RenderTasksList {
+export default class RenderTasksList {
   constructor(data) {
     this.data = data;
     this.list = document.querySelector('#tasks-list');

@@ -1,10 +1,9 @@
 import '../scss/app.scss';
-import { LocalStorage } from './localStorage';
-import { RenderTasksList } from './RenderTL';
-import { Filters } from './Filters';
-import { Menu } from './Menu';
-// eslint-disable-next-line import/no-cycle
-import { Form } from './Form';
+import LocalStorage from './localStorage';
+import RenderTasksList from './RenderTasksList';
+import Filters from './Filters';
+import Menu from './Menu';
+import Form from './Form';
 
 export const storage = new LocalStorage();
 const DATA = storage.init();
